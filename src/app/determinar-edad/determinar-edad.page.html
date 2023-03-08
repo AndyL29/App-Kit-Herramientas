@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Determinar edad
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Escribe tu nombre y se determinará tu edad</ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content>
+      
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Ingrese el nombre:</ion-label>
+          <ion-input [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="calcularEdad()">Calcular edad</ion-button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card *ngIf="edad">
+    <img style="height: 200px;" [src]="imagen">
+    <ion-card-header>
+      {{mensaje}}
+    </ion-card-header>
+    <ion-card-content>
+      Edad: {{edad}} años
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Predicción de genero 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Escribe tu nombre y predice tu genero</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Ingrese el nombre:</ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+    
+      <ion-button expand="full" (click)="predecirGenero()">Predecir Genero</ion-button>
+      
+      <div *ngIf="genero === 'male'" style="background-color: #77caca  ; color: rgb(0, 0, 0); padding: 10px; margin-top: 30px;">
+        <img style="width: 200px;" src="https://static.vecteezy.com/system/resources/previews/017/178/570/original/male-symbol-isolated-icon-on-transparent-background-free-png.png" alt="">
+        <p style="font-size: 25px; text-align: center;"> <b>"{{nombre}}"</b> es un nombre masculino</p> 
+      </div>
+    
+      <div *ngIf="genero === 'female'" style="background-color: #FFB6C1; color: rgb(0, 0, 0); padding: 10px; margin-top: 30px;">
+        <img style="width: 200px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pink_female_symbol.svg/1200px-Pink_female_symbol.svg.png" alt="">
+        <p style="font-size: 25px; text-align: center;"><b>"{{nombre}}"</b> es un nombre femenino</p> 
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

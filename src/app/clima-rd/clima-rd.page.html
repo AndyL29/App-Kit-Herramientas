@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Clima en República Dominicana
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="text-align: center; font-size: 15px; padding-bottom: 30px;">Este es el clima ACTUAL de República Dominicana </ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-list *ngIf="weather">
+          <ion-item style="font-size: 15px;">
+            <ion-label>Temperatura</ion-label>
+            <ion-note style="font-size: 15px;" slot="end">{{ weather.main.temp }}°C</ion-note>
+          </ion-item>
+
+          <ion-item style="font-size: 15px;">
+            <ion-label>Sensación térmica</ion-label>
+            <ion-note style="font-size: 15px;" slot="end">{{ weather.main.feels_like }}°C</ion-note>
+          </ion-item>
+          
+          <ion-item style="font-size: 15px;">
+            <ion-label>Humedad</ion-label>
+            <ion-note style="font-size: 15px;" slot="end">{{ weather.main.humidity }}%</ion-note>
+          </ion-item>
+
+          <ion-item style="font-size: 15px;">
+            <ion-label>Viento</ion-label>
+            <ion-note style="font-size: 15px;" slot="end">{{ weather.wind.speed }} m/s</ion-note>
+          </ion-item>
+
+          <ion-item style="font-size: 15px;">
+            <ion-label>Descripción</ion-label>
+            <ion-note style="font-size: 15px;">{{ weather.weather[0].description }}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  <ion-spinner *ngIf="!weather"></ion-spinner>
+</ion-content>

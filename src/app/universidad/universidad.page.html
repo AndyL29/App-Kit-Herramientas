@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Buscar universidades por país
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="text-align: center;">Escribe el nombre del país en ingles y verás las universidades</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Ingresa el nombre del país en inglés:</ion-label>
+          <ion-input [(ngModel)]="pais"></ion-input>
+        </ion-item>
+      
+        <ion-button expand="block" (click)="buscarUniversidades()">Buscar</ion-button>
+
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-header>
+      </ion-card-header>
+    
+      <ion-card-content>
+          <ion-list *ngIf="universidades">
+            <ion-item *ngFor="let universidad of universidades">
+              <ion-label>
+                {{ universidad.name }}
+                <p>{{ universidad.domains }}</p>
+                <a [href]="universidad.web_pages[0]">{{ universidad.web_pages[0] }}</a>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+
+      </ion-card-content>
+    </ion-card>
+</ion-content>
